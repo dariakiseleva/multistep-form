@@ -1,10 +1,13 @@
 import { useState } from "react";
 import reactLogo from "./assets/react.svg";
+import AccountForm from "./components/formSteps/accountForm";
+import AddressForm from "./components/formSteps/addressForm";
+import UserForm from "./components/formSteps/userForm";
 
 import { useMultistepForm } from "./hooks/useMultistepForm";
 
 function App() {
-  const tempData = [<h1>One</h1>, <h1>Two</h1>, <h1>Three</h1>];
+  const tempData = [<UserForm />, <AddressForm />, <AccountForm />];
 
   const { steps, currentStepIndex, step, next, back, isFirstStep, isLastStep } =
     useMultistepForm(tempData);
@@ -43,6 +46,7 @@ function App() {
           display: "flex",
           gap: ".5rem",
           justifyContent: "flex-end",
+          fontSize: "2rem",
         }}
       >
         {!isFirstStep && (
