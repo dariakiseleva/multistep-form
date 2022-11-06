@@ -13,7 +13,7 @@ const useMultistepForm = (steps: ReactElement[]) => {
     });
   };
 
-  const prev = () => {
+  const back = () => {
     setCurrentStepIndex((oldIndex) => {
       if (oldIndex == 0) return oldIndex;
       return oldIndex - 1;
@@ -30,7 +30,9 @@ const useMultistepForm = (steps: ReactElement[]) => {
     currentStepIndex,
     step: steps[currentStepIndex],
     next,
-    prev,
+    back,
+    isFirstStep: currentStepIndex === 0,
+    isLastStep: currentStepIndex === steps.length - 1,
   };
 };
 
