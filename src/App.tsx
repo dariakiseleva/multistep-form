@@ -49,13 +49,14 @@ function App() {
   const { steps, currentStepIndex, step, next, back, isFirstStep, isLastStep } =
     useMultistepForm(tempData);
 
-  const onSubmit = (e: FormEvent) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    next();
+    if (!isLastStep) return next();
+    alert("Form completed");
   };
 
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={handleSubmit}>
       <div
         style={{
           position: "relative",
